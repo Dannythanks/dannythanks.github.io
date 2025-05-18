@@ -10,7 +10,6 @@
   <style>
     :root {
       --primary: #ff4081;
-      --bg-dark: #0f2027;
       --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       --glass: rgba(255, 255, 255, 0.05);
       --glass-border: rgba(255, 255, 255, 0.1);
@@ -26,7 +25,6 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 100;
       background-color: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(10px);
       box-shadow: 0 4px 8px rgba(255, 64, 129, 0.2);
@@ -38,8 +36,8 @@
 
     header h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.6rem;
       color: var(--primary);
+      font-size: 1.6rem;
       margin: 0;
     }
 
@@ -89,13 +87,13 @@
       margin-bottom: 2rem;
     }
 
-    .form-group {
-      position: relative;
-      margin-bottom: 1.8rem;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
-    .form-group input,
-    .form-group textarea {
+    input, textarea {
       width: 100%;
       background: var(--glass);
       border: 1px solid var(--glass-border);
@@ -106,40 +104,15 @@
       outline: none;
     }
 
-    .form-group label {
-      position: absolute;
-      left: 16px;
-      top: 14px;
-      color: #ccc;
-      font-size: 1rem;
-      transition: all 0.3s;
-      pointer-events: none;
-    }
-
-    .form-group input:focus + label,
-    .form-group input:not(:placeholder-shown) + label,
-    .form-group textarea:focus + label,
-    .form-group textarea:not(:placeholder-shown) + label {
-      top: -10px;
-      left: 12px;
-      font-size: 0.8rem;
-      color: var(--primary);
-      background: rgba(15, 32, 39, 0.9);
-      padding: 0 6px;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
+    input:focus, textarea:focus {
       border-color: var(--primary);
-      background: rgba(255, 255, 255, 0.07);
     }
 
     button {
-      width: 100%;
-      padding: 1rem;
       background: var(--primary);
       color: white;
       font-size: 1rem;
+      padding: 1rem;
       border: none;
       border-radius: 10px;
       cursor: pointer;
@@ -195,28 +168,14 @@
   <main>
     <div class="form-container">
       <h2>Contact Me</h2>
-      <form action="https://formsubmit.co/yourname@gmail.com" method="POST">
-        <!-- Replace with your actual email above -->
+      <form action="https://formsubmit.co/danielbituro@email.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://your-username.github.io/thankyou.html">
+        <input type="hidden" name="_next" value="thankyou.html">
 
-        <div class="form-group">
-          <input type="text" id="name" name="name" required placeholder=" " />
-          <label for="name">Full Name</label>
-        </div>
-        <div class="form-group">
-          <input type="email" id="email" name="email" required placeholder=" " />
-          <label for="email">Email</label>
-        </div>
-        <div class="form-group">
-          <input type="text" id="phone" name="phone" placeholder=" " />
-          <label for="phone">Phone (optional)</label>
-        </div>
-        <div class="form-group">
-          <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
-          <label for="message">Your Message</label>
-        </div>
-        <button type="submit">Send Message</button>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
       </form>
     </div>
   </main>
