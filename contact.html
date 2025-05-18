@@ -199,7 +199,7 @@ footer {
   <main>
     <div class="form-container">
       <h2>Contact Me</h2>
-        <form action="https://formsubmit.co/danielbituro@gmail.com" method="POST">
+        <form id="contactForm" onsubmit="return validateForm()" action="https://formsubmit.co/danielbituro@gmail.com" method="POST">
         <div class="form-group">
           <input type="text" id="name" name="name" required placeholder=" " />
           <label for="name">Full Name</label>
