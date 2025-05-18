@@ -195,7 +195,11 @@
   <main>
     <div class="form-container">
       <h2>Contact Me</h2>
-      <form id="contactForm" onsubmit="return validateForm()">
+      <form action="https://formsubmit.co/yourname@gmail.com" method="POST">
+        <!-- Replace with your actual email above -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://your-username.github.io/thankyou.html">
+
         <div class="form-group">
           <input type="text" id="name" name="name" required placeholder=" " />
           <label for="name">Full Name</label>
@@ -220,24 +224,5 @@
   <footer>
     <p>© 2025 Daniel Bituro. All rights reserved.</p>
   </footer>
-
-  <script>
-    function validateForm() {
-      const email = document.getElementById("email").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const emailRegex = /^[\\w.-]+@[\\w.-]+\\.\\w+$/;
-      const phoneRegex = /^\\+?[0-9\\s\\-]{7,20}$/;
-      if (!emailRegex.test(email)) {
-        alert("Please enter a valid email.");
-        return false;
-      }
-      if (phone && !phoneRegex.test(phone)) {
-        alert("Invalid phone number.");
-        return false;
-      }
-      return true;
-    }
-  </script>
 </body>
 </html>
-
